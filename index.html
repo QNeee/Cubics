@@ -8,22 +8,26 @@
     <title>Cubics</title>
   </head>
   <body>
-    <div class="header">
-      <button class="button" type="button" id="start">Start Game</button>
-
-      <button class="button" type="button" id="new">New Game</button>
-      <div class="statistic">
-        <p class="points">Points:</p>
-        <p class="time-left">Time-left:01:00</p>
+    <div class="page-title">
+      <h1>PAGE TITLE</h1>
+      <div class="flex">
+        <div class="buttons">
+          <button class="button" type="button" id="start">Start</button>
+          <button class="button" type="button" id="new">New Game</button>
+        </div>
+        <div class="p-flex">
+          <p class="points">Points:</p>
+          <p class="time-left">Time-left:01:00</p>
+          <button class="button-clear hidden" type="button">Clear</button>
+        </div>
+        <ul class="results">
+          RESULTS
+        </ul>
       </div>
-      <ul class="results">
-        RESULTS
-      </ul>
-      <button class="button-clear hidden" type="button">Clear</button>
     </div>
     <div class="game"></div>
     <div class="backdrop hidden">
-      <form class="form">
+      <form class="form modal">
         <p class="score"></p>
         <label class="label" for="name">Name</label
         ><input class="input" type="text" />

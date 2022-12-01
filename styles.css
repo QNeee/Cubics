@@ -13,7 +13,33 @@
   --caubic: cubic-bezier(0.4, 0, 0.2, 1);
   --wait: 250ms;
 }
-
+.backg {
+  background-color: grey;
+}
+.results {
+  padding: 15px;
+  color: black;
+  height: 555px;
+  width: 666px;
+  margin-right: auto;
+  outline: 1px solid blue;
+}
+.results__item {
+  padding: 15px;
+  margin-left: 20px;
+}
+.flex {
+  display: flex;
+  height: 100px;
+}
+.p-flex {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.second-div {
+  display: flex;
+}
 .header {
   width: 1200px;
   margin-left: auto;
@@ -22,13 +48,31 @@
 .game {
   padding: 50px;
   display: flex;
-  width: 1200px;
-  margin: auto;
+  width: 550px;
+  margin-right: auto;
   justify-content: space-evenly;
 }
 .game__item {
   border: 4px;
   margin-right: 15px;
+}
+.points {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  width: 75px;
+  margin-right: 150px;
+  outline: 1px solid black;
+}
+.time-left {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  width: 155px;
+  margin-right: 150px;
+  outline: 1px solid black;
 }
 .hidden {
   display: none;
@@ -37,8 +81,14 @@
   display: flex;
 }
 .button {
-  width: 125px;
-  height: 125px;
+  margin-right: 25px;
+  height: 40px;
+  width: 75px;
+}
+.buttons {
+  margin-left: 0px;
+  margin-right: 55px;
+  display: flex;
 }
 
 .statistic {
@@ -50,9 +100,17 @@
 .bcg {
   color: green;
 }
-.results {
-  width: 600px;
-  display: block;
+.modal {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  width: 500px;
+  height: 200px;
+  text-align: center;
 }
 .backdrop.is-hidden {
   transform: scale(2);

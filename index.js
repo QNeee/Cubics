@@ -25,7 +25,7 @@ function getRandomHexColor() {
 }
 
 function CreateCubics() {
-    let boxSizes = 100;
+    let boxSizes = 33;
     let boxes = [];
 
     for (let i = 0; i < 14; i++) {
@@ -54,13 +54,14 @@ function addLeadingZero(value) {
     return String(value).padStart(2, '0');
 }
 function interval() {
-    let m = 5;
+    let m = 59;
     intervalId = setInterval(() => {
         if (refs.timeLeft.textContent === "Time-left:00:00") {
             refs.mainDiv.innerHTML = "";
             clearInterval(intervalId);
             points > 0 ? refs.modal.classList.remove("hidden") :
                 refs.mainDiv.innerHTML = "<h1>No Scores</h1>";
+            refs.body.style.backgroundColor = "grey";
             return refs.score.textContent = `Your Score :  ${points}`;
         }
         return refs.timeLeft.textContent = `Time-left:00:${addLeadingZero(m--)}`;
@@ -93,6 +94,7 @@ function OnNewGame(e) {
     clearInterval(intervalId);
     refs.points.textContent = "Points:"
     refs.points.classList.remove("bcg");
+    refs.body.style.backgroundColor = "white";
     return interval();
 }
 
@@ -109,14 +111,16 @@ function onSubmit(e) {
     }
     refs.points.classList.remove("bcg");
     refs.points.textContent = "Points:"
+    refs.body.style.backgroundColor = "white";
     e.currentTarget.reset();
 }
 function SaveToStorage() {
+
     let localStorageObj = getLocalStorage();
     if (localStorageObj.length > 0) {
         refs.result.innerHTML = "RESULTS";
         refs.buttonClear.classList.remove("hidden");
-        return refs.result.insertAdjacentHTML("beforeend", localStorageObj.map((el) => `<li>${el}</li>`).join(""))
+        return refs.result.insertAdjacentHTML("beforeend", localStorageObj.map((el) => `<li class="results__item">${el}</li>`).join(""))
     }
 }
 function onClickClear(e) {
