@@ -25,7 +25,7 @@ function getRandomHexColor() {
 }
 
 function CreateCubics() {
-    let boxSizes = 55;
+    let boxSizes = 100;
     let boxes = [];
 
     for (let i = 0; i < 14; i++) {
@@ -39,6 +39,7 @@ function CreateCubics() {
             if (nodeName !== "DIV") return;
             listDiv.classList.add("hidden")
             points++;
+            refs.points.classList.add("bcg");
             refs.points.textContent = `Points:${points}`
             if (points % 14 === 0) {
                 CreateCubics();
@@ -53,7 +54,7 @@ function addLeadingZero(value) {
     return String(value).padStart(2, '0');
 }
 function interval() {
-    let m = 1;
+    let m = 5;
     intervalId = setInterval(() => {
         if (refs.timeLeft.textContent === "Time-left:00:00") {
             refs.mainDiv.innerHTML = "";
@@ -82,12 +83,16 @@ function onClickStart(e) {
 }
 function OnNewGame(e) {
     points = 0;
+    const { nodeName } = e.target;
+    if (nodeName !== "BUTTON") return;
     refs.modal.classList.add("hidden");
     refs.mainDiv.innerHTML = "";
     refs.buttonStart.disabled = true;
     CreateCubics();
     refs.timeLeft.textContent = "Time-left:01:00";
     clearInterval(intervalId);
+    refs.points.textContent = "Points:"
+    refs.points.classList.remove("bcg");
     return interval();
 }
 
@@ -97,18 +102,19 @@ function onSubmit(e) {
     if (refs.input.value.length > 0) {
         refs.buttonStart.disabled = false;
         refs.modal.classList.add("hidden");
-        localStorageObj.push(`Player=${refs.input.value.toUpperCase()}|| points = ${points}`);
+        localStorageObj.push(`Player=${refs.input.value}  || points = ${points}`);
         const stringifiedData = JSON.stringify(localStorageObj);
         localStorage.setItem(KEY, stringifiedData);
         SaveToStorage();
     }
-
+    refs.points.classList.remove("bcg");
+    refs.points.textContent = "Points:"
     e.currentTarget.reset();
 }
 function SaveToStorage() {
     let localStorageObj = getLocalStorage();
     if (localStorageObj.length > 0) {
-        refs.result.innerHTML = "";
+        refs.result.innerHTML = "RESULTS";
         refs.buttonClear.classList.remove("hidden");
         return refs.result.insertAdjacentHTML("beforeend", localStorageObj.map((el) => `<li>${el}</li>`).join(""))
     }
@@ -117,7 +123,7 @@ function onClickClear(e) {
     const { nodeName } = e.target;
     if (nodeName !== "BUTTON") return;
     localStorage.removeItem(KEY);
-    refs.result.innerHTML = "";
+    refs.result.innerHTML = "RESULTS";
     refs.buttonClear.classList.add("hidden");
 }
 SaveToStorage();
