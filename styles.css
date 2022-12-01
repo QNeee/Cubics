@@ -22,7 +22,6 @@
   height: 555px;
   width: 666px;
   margin-right: auto;
-  outline: 1px solid blue;
 }
 .results__item {
   padding: 15px;
@@ -100,6 +99,7 @@
   color: green;
 }
 .modal {
+  border: 15px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
