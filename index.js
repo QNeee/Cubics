@@ -53,8 +53,9 @@ function CreateCubics() {
 function addLeadingZero(value) {
     return String(value).padStart(2, '0');
 }
+
 function interval() {
-    let m = 1;
+    let m = 59;
     intervalId = setInterval(() => {
         if (refs.timeLeft.textContent === "Time-left:00:00") {
             refs.mainDiv.innerHTML = "";
