@@ -1,0 +1,60 @@
+:root {
+  --accent-color: #2196f3;
+  --primary-text: #212121;
+  --secondary-text: #757575;
+  --footer-bcg: #2f303a;
+  --primary-bcg: #f5f5f5;
+  --footer-linkcolor: rgba(255, 255, 255, 0.6);
+  --footer-adrescolor: #ffffff;
+  --filter-secondarycolor: #ffffff;
+  --header-logocolor: #000000;
+  --hero-bcg: #2f303a;
+  --btns-color: #f5f4fa;
+  --caubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --wait: 250ms;
+}
+.bcg-color {
+  background-color: blue;
+}
+.header {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.game {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.game__item {
+  margin-right: 15px;
+}
+.hidden {
+  display: none;
+}
+.header {
+  display: flex;
+}
+.button {
+  width: 125px;
+  height: 125px;
+}
+
+.statistic {
+  outline: 2px solid tomato;
+  width: 350px;
+  text-align: center;
+  height: 125px;
+}
+.results {
+  display: block;
+}
+.backdrop.is-hidden {
+  transform: scale(2);
+}
+.hidden {
+  display: none;
+}
